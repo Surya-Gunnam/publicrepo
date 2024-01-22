@@ -1,5 +1,5 @@
 FROM ubuntu
-RUN apt -y update && apt -y install apache2
+RUN apt update -y && apt install apache2 -y
 COPY . /var/www/html
 EXPOSE 80
 ENTRYPOINT apache2ctl -D FOREGROUND

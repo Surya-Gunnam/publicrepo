@@ -1,6 +1,11 @@
 FROM ubuntu
+LABEL author=surya
 RUN apt update -y && apt install apache2 -y
+RUN mkdir /app
+RUN useradd john
 COPY . /var/www/html
-EXPOSE 80
-ENTRYPOINT apache2ctl -D FOREGROUND
+WORKDIR /app
+ENV app=v1
+USER john
+CMD sleep 1000
 
